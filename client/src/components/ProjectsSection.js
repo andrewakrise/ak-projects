@@ -6,7 +6,7 @@ import Card from "./Card";
 const projects = [
   {
     id: 1,
-    title: "React Space",
+    title: "Music Devise Store",
     description:
       "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
     getImageSrc: () => require("../images/music-device-store.png"),

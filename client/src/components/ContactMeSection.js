@@ -47,7 +47,7 @@ const ContactMeSection = () => {
         formik.resetForm();
       }
     }
-  }, [response, onOpen, formik ]);
+  }, [response, onOpen, formik,submit]);
 
   return (
     <FullScreenSection
