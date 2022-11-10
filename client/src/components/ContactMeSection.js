@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -13,13 +13,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import * as Yup from 'yup';
+import { send } from 'emailjs-com';
 import FullScreenSection from "./FullScreenSection";
-import useSubmit from "../hooks/useSubmit";
-import { useAlertContext } from "../context/alertContext";
+//import useSubmit from "../hooks/useSubmit";
+//import { useAlertContext } from "../context/alertContext";
 
 const ContactMeSection = () => {
-  const { isLoading, response, submit } = useSubmit();
-  const { onOpen } = useAlertContext();
+  //const { isLoading, response, submit } = useSubmit();
+  //const { onOpen } = useAlertContext();
 
   const formik = useFormik({
     initialValues: {
@@ -28,9 +29,6 @@ const ContactMeSection = () => {
       type: "hireMe",
       comment: "",
     },
-    onSubmit: (values) => {
-      submit('https:/ka-webdev.space', values);
-    },
     validationSchema: Yup.object({
       from_name: Yup.string().required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
@@ -38,16 +36,27 @@ const ContactMeSection = () => {
         .min(25, "Must be at least 25 characters")
         .required("Required"),
     }),
-  });
-
-  useEffect(() => {
-    if (response) {
-      onOpen(response.type, response.message);
-      if (response.type === 'success') {
+    onSubmit: (values) => {
+      console.log('values', values);
+      try {
+        send(
+          'service_ak-projects',
+          'template_me0gf7v',
+          values,
+          'agJWxeoZ_cB9hOqCK'
+        )
+        alert(`Thanks for your submission ${values.from_name}, we will get back to you shortly!`);
+        formik.setSubmitting(false);
         formik.resetForm();
+        console.log('email sent');
+      } catch {
+        alert(`Something went wrong, please try again later!`);
+        formik.setSubmitting(false);
       }
-    }
-  }, [response, onOpen, formik,submit]);
+
+    },
+
+  });
 
   return (
     <FullScreenSection
@@ -102,7 +111,7 @@ const ContactMeSection = () => {
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full" isLoading={isLoading}>
+              <Button type="submit" colorScheme="purple" width="full" disabled={formik.isSubmitting}>
                 Submit
               </Button>
             </VStack>

@@ -1,9 +1,9 @@
-import { Heading, HStack, Image, Text, VStack, Stack } from "@chakra-ui/react";
+import { Link, Heading, HStack, Image, Text, VStack, Stack } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
-const Card = ({ id, title, description, imageSrc }) => {
+const Card = ({ id, title, description, imageSrc,link }) => {
   return (
     <Stack
       color="black"
@@ -25,7 +25,7 @@ const Card = ({ id, title, description, imageSrc }) => {
           {description}
         </Text>
         <HStack spacing={2} alignItems="center">
-          <p>See more</p>
+          <Link href={link} isExternal>See more</Link>
           <FontAwesomeIcon icon={faArrowRight} size="1x" />
         </HStack>
       </VStack>

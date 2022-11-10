@@ -6,31 +6,35 @@ import Card from "./Card";
 const projects = [
   {
     id: 1,
-    title: "Music Devise Store",
+    title: "Music Device Shop",
     description:
-      "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
+      "Handy tool belt to create amazing componentss in a JavaScript website, with JSON and REST API integration via middleware️",
     getImageSrc: () => require("../images/music-device-store.png"),
+    link: "https://www.music-device.store/"
   },
   {
     id: 2,
-    title: "React Infinite Scroll",
+    title: "ChildWood - Online Store",
     description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 FPS and fully implemented in JS land 🔥️",
+      "A slidable galery sheet with virtualization support, native animations fully implemented in JS land",
     getImageSrc: () => require("../images/childwood-store.png"),
+    link: "https://www.childwood.store/"
   },
   {
     id: 3,
-    title: "Photo Gallery",
+    title: "Slidys: Product Gallery ",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
+      "New design for desktop and mobile browsers, that contributed to adding new customers and expanding regions.",
     getImageSrc: () => require("../images/slidys.png"),
+    link: "https://slidys.com/"
   },
   {
     id: 4,
-    title: "Event planner",
+    title: "Scheduler - Event planner",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
+      "A mobile application for volunteers to discover unique events and activities in their city with a few taps",
     getImageSrc: () => require("../images/events-scheduler.png"),
+    link: "https://mern-ak-dev.herokuapp.com/"
   },
 ];
 
@@ -60,6 +64,7 @@ const ProjectsSection = () => {
                 description={project.description}
                 url="https://github.com/rgommezz/react-native-offline"
                 imageSrc={project.getImageSrc()}
+                link={project.link}
               />
             </Center>
           </WrapItem>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { send } from 'emailjs-com';
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
