@@ -4,7 +4,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
-  faMedium,
+  faChrome
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack, Stack } from "@chakra-ui/react";
 
@@ -22,7 +22,7 @@ const socials = [
     url: "https://www.linkedin.com/in/andrewkukhar/",
   },
   {
-    icon: faMedium,
+    icon: faChrome,
     url: "https://ka-webdev.space/",
   },
 ];

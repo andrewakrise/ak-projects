@@ -22,7 +22,6 @@ db.mongoose
         console.error("Connection error", err);
         process.exit();
     });
-// require('./routes/message.routes')(app);
 app.use('/', express.static(path.join(__dirname, 'client','build')))
 
 app.get('*', (req, res) => {

@@ -15,12 +15,8 @@ import {
 import * as Yup from 'yup';
 import { send } from 'emailjs-com';
 import FullScreenSection from "./FullScreenSection";
-//import useSubmit from "../hooks/useSubmit";
-//import { useAlertContext } from "../context/alertContext";
 
 const ContactMeSection = () => {
-  //const { isLoading, response, submit } = useSubmit();
-  //const { onOpen } = useAlertContext();
 
   const formik = useFormik({
     initialValues: {
