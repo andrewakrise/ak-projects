@@ -34,7 +34,7 @@ const projects = [
     description:
       "A mobile application for volunteers to discover unique events and activities in their city with a few taps",
     getImageSrc: () => require("../images/events-scheduler.png"),
-    link: "https://mern-ak-dev.herokuapp.com/"
+    link: "https://sched-events.herokuapp.com//"
   },
 ];
 
