@@ -9,19 +9,19 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const db = require("./models");
-db.mongoose
-    .connect(`mongodb+srv://AkProjects:AkProjects@cluster0.ufk2y7c.mongodb.net/?retryWrites=true&w=majority`, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => {
-        console.log("Successfully connect to MongoDB.");
-    })
-    .catch(err => {
-        console.error("Connection error", err);
-        process.exit();
-    });
+// const db = require("./models");
+// db.mongoose
+//     .connect(`mongodb+srv://AkProjects:AkProjects@cluster0.ufk2y7c.mongodb.net/?retryWrites=true&w=majority`, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     })
+//     .then(() => {
+//         console.log("Successfully connect to MongoDB.");
+//     })
+//     .catch(err => {
+//         console.error("Connection error", err);
+//         process.exit();
+//     });
 app.use('/', express.static(path.join(__dirname, 'client','build')))
 
 app.get('*', (req, res) => {
