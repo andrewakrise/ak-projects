@@ -34,7 +34,31 @@ const projects = [
     description:
       "A mobile application for volunteers to discover unique events and activities in their city with a few taps",
     getImageSrc: () => require("../images/events-scheduler.png"),
-    link: "https://sched-events.herokuapp.com//"
+    link: "https://sched-events.herokuapp.com/"
+  },
+  {
+    id: 5,
+    title: "Online Chess Game",
+    description:
+      "Online chess game for having a fun",
+    getImageSrc: () => require("../images/online-chess.png"),
+    link: "https://chess-two-players.herokuapp.com/"
+  },
+  {
+    id: 6,
+    title: "Music App",
+    description:
+      "Created Music app, but not finished, in progress to add music library and then you can enjoy the music",
+    getImageSrc: () => require("../images/music-player.png"),
+    link: "https://music-player-ak.herokuapp.com/"
+  },
+  {
+    id: 7,
+    title: "Time tracker",
+    description:
+      "Web app for create and count your timing for work or anything else",
+    getImageSrc: () => require("../images/time-track.png"),
+    link: "https://time-track.herokuapp.com/"
   },
 ];
 
@@ -62,7 +86,7 @@ const ProjectsSection = () => {
                 key={project.id}
                 title={project.title}
                 description={project.description}
-                url="https://github.com/rgommezz/react-native-offline"
+                url="https://github.com/andrewkukhar/"
                 imageSrc={project.getImageSrc()}
                 link={project.link}
               />
