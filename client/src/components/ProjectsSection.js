@@ -57,7 +57,7 @@ const projects = [
     title: "Time tracker",
     description:
       "Web app for create and count your timing for work or anything else",
-    getImageSrc: () => require("../images/time-track.png"),
+    getImageSrc: () => require("../images/time-track3.png"),
     link: "https://time-track.herokuapp.com/"
   },
 ];
