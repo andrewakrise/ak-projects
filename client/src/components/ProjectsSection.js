@@ -60,6 +60,30 @@ const projects = [
     getImageSrc: () => require("../images/time-track3.png"),
     link: "https://time-track.herokuapp.com/"
   },
+  {
+    id: 8,
+    title: "DJ_Web App",
+    description:
+      "DJ page or a web app, responsive, adaptive, simple",
+    getImageSrc: () => require("../images/dj-web-app.png"),
+    link: "https://www.djsrise.com/"
+  },
+  {
+    id: 9,
+    title: "Agents Dashboard",
+    description:
+      "Dashboard to collect, analize and display the data of agents, with interacrtive charts created from scratch",
+    getImageSrc: () => require("../images/agents-dashboard.png"),
+    link: "https://www.youtube.com/watch?v=8iqvGfCUnsI&ab_channel=AndrewKukhar/"
+  },
+  {
+    id: 10,
+    title: "Displaying Data Web App | ddwa",
+    description:
+      "Web app in progress... React, TypeScript, Node.js, Map libraries, geojson",
+    getImageSrc: () => require("../images/map-tiler-example.png"),
+    link: "https://www.youtube.com/watch?v=8iqvGfCUnsI&ab_channel=AndrewKukhar/"
+  },
 ];
 
 const ProjectsSection = () => {

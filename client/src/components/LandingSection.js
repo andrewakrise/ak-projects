@@ -4,7 +4,7 @@ import FullScreenSection from "./FullScreenSection";
 import logo from "../ak-logo.png";
 
 const greeting = "Hello, I am Andrew!";
-const bio1 = "A Full Stack Developer";
+const bio1 = "A Software Developer";
 const bio2 = "specialized in React, Node.js, JavaScript and etc...";
 
 const LandingSection = () => (
@@ -14,8 +14,8 @@ const LandingSection = () => (
     isDarkBackground
     backgroundColor="#2A4365"
   >
-    <VStack spacing={4}>
-      <VStack spacing={4} alignItems="center">
+    <VStack spacing={3}>
+      <VStack spacing={3} alignItems="center">
         <Avatar
           src={logo}
           size="xl"
