@@ -23,7 +23,7 @@ const socials = [
   },
   {
     icon: faChrome,
-    url: "https://ka-webdev.space/",
+    url: "https://www.akweb.dev/",
   },
 ];
 const Header = () => {
