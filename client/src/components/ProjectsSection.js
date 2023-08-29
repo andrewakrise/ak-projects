@@ -78,11 +78,11 @@ const projects = [
   },
   {
     id: 10,
-    title: "Displaying Data Web App | ddwa",
+    title: "VanDJs Club",
     description:
-      "Web app in progress... React, TypeScript, Node.js, Map libraries, geojson",
-    getImageSrc: () => require("../images/map-tiler-example.png"),
-    link: "https://www.youtube.com/watch?v=8iqvGfCUnsI&ab_channel=AndrewKukhar/"
+      "Web app in progress... React, Node.js, MongoDB, Image libraries, JWT, Heroku",
+    getImageSrc: () => require("../images/vandjsclub.png"),
+    link: "https://www.vandjs.club/"
   },
 ];
 
