@@ -16,12 +16,7 @@ const LandingSection = () => (
   >
     <VStack spacing={3}>
       <VStack spacing={3} alignItems="center">
-        <Avatar
-          src={logo}
-          size="xl"
-          name="A K"
-          className="app-logo"
-        />
+        <Avatar src={logo} size="xl" name="A K" className="app-logo" />
         <Heading as="h3" size="md" noOfLines={1}>
           {greeting}
         </Heading>
