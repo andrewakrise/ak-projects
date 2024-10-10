@@ -23,8 +23,6 @@
 │       │   ├── Header.js
 │       │   ├── LandingSection.js
 │       │   └── ProjectsSection.js
-│       ├── context
-│       │   └── alertContext.js
 │       ├── images
 │       │   ├── agents-dashboard.png
 │       │   ├── childwood-store.png
@@ -41,12 +39,13 @@
 │       │   └── vandjsclub.png
 │       ├── index.css
 │       └── index.js
-├── contactUsEmailController.js
+├── controllers
+│   └── contactUsEmailController.js
 ├── models
 │   └── index.js
 ├── package-lock.json
 ├── package.json
-├── sendEmail.js
-└── sendEmailRoute.js
+└── routes
+    └── sendEmailRoute.js
 
-8 directories, 42 files
+9 directories, 40 files

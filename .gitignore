@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 node_modules
+.env
 
 # testing
 /coverage
@@ -12,6 +13,7 @@ node_modules
 # production
 /build
 build
+.env
 
 # misc
 .DS_Store
@@ -25,7 +27,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # .gitignore at root
-.env
+/.env
 client/.env
 node_modules/
 client/node_modules/
+.env
+.env
