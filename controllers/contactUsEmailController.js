@@ -22,11 +22,13 @@ exports.contactUsEmail = async (req, res) => {
     const senderName = formData.name;
 
     const welcomeMailOptions = {
-      from: `"${senderName}" <${process.env.EMAIL_USER}>`,
+      from: `"${senderName}, ${senderEmailLower}" <${process.env.EMAIL_USER}>`,
       replyTo: senderEmailLower,
       to: process.env.EMAIL_USER,
       subject: `Contact Us Email from AK Projects: ${formData.subject}`,
       text: `Dear Admin,
+
+My name is ${senderName},
 
 ${formData.message}
 

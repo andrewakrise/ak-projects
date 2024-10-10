@@ -1,15 +1,121 @@
-.app-logo {
-  height: 40vmin;
-  pointer-events: none;
-  animation: app-logo-spin infinite 20s linear;
-
+.main-app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
+.full-screen-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.greeting-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 7rem 2rem 2rem 2rem;
+}
+.bio-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 0 5rem 0;
+}
+
+.contact-me-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 724px;
+  margin: 0 auto;
+  padding: 7rem 2rem;
+}
+
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 7rem 2rem;
+}
+
+.projects-section-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100rem;
+  gap: 2rem;
+}
+
+.project-card {
+  width: 400px;
+  max-width: 400px;
+  border-radius: 2px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+@media (max-width: 1000px) {
+  .full-screen-section {
+    padding: 0;
   }
-  to {
-    transform: rotate(360deg);
+  .contact-me-section {
+    padding: 5rem 0;
+  }
+  .projects-section {
+    padding: 5rem 0;
+  }
+  .projects-section-grid {
+    gap: 2rem 1rem;
+  }
+  .project-card {
+    width: 375px;
+  }
+}
+
+@media (max-width: 750px) {
+  .contact-me-section {
+    max-width: 90%;
+  }
+  .projects-section {
+    max-width: 100%;
+  }
+  .projects-section-grid {
+    gap: 2rem 0;
+  }
+  .project-card {
+    max-width: 350px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-me-section {
+    max-width: 85%;
+  }
+  .projects-section {
+    max-width: 100%;
+    padding: 3rem 0;
+  }
+  .projects-section-grid {
+    width: 90%;
+    gap: 2rem 0;
+  }
+  .project-card {
+    max-width: 350px;
+    width: 100%;
   }
 }

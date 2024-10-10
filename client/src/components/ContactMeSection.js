@@ -79,7 +79,7 @@ const ContactMeSection = () => {
         },
         body: JSON.stringify({ formData }),
       });
-      console.log("result", result);
+
       if (result?.status === 201 || result?.status === 200) {
         setNotification({
           open: true,
@@ -110,10 +110,9 @@ const ContactMeSection = () => {
     <FullScreenSection
       isDarkBackground
       backgroundColor="#512DA8"
-      py={16}
-      spacing={8}
+      className="full-screen-section"
     >
-      <Box maxWidth="724px" p={4} alignItems="flex-start" mx="auto">
+      <Box className="contact-me-section">
         <Typography
           variant="h4"
           component="h1"
@@ -123,8 +122,8 @@ const ContactMeSection = () => {
         >
           Contact me
         </Typography>
-        <Box p={2} width="100%">
-          <form onSubmit={handleSubmit}>
+        <Box width="100%">
+          <form onSubmit={handleSubmit} width="100%">
             <TextField
               fullWidth
               required

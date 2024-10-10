@@ -10,19 +10,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 const ProjectCard = ({ id, title, description, imageSrc, link }) => {
   return (
-    <Card
-      key={id}
-      sx={{
-        maxWidth: 400,
-        borderRadius: 2,
-        backgroundColor: "#fff",
-        cursor: "pointer",
-        transition: "transform 0.2s",
-        "&:hover": {
-          transform: "scale(1.02)",
-        },
-      }}
-    >
+    <Card key={id} className="project-card">
       <CardMedia
         component="img"
         height="200"
@@ -33,7 +21,7 @@ const ProjectCard = ({ id, title, description, imageSrc, link }) => {
           borderTopRightRadius: 2,
         }}
       />
-      <CardContent sx={{ padding: 2 }}>
+      <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>

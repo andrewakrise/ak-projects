@@ -1,8 +1,6 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ProjectCard from "./Card";
 
 const projects = [
@@ -59,33 +57,31 @@ const ProjectsSection = () => {
     <FullScreenSection
       backgroundColor="#14532d"
       isDarkBackground
-      p={4}
-      alignItems="center"
-      spacing={8}
-      sx={{ minWidth: "100%" }}
+      className="full-screen-section"
     >
-      <Typography
-        variant="h4"
-        component="h1"
-        id="projects-section"
-        gutterBottom
-      >
-        Featured Projects
-      </Typography>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={4} justifyContent="center">
+      <Box sx={{ flexGrow: 1 }} className="projects-section">
+        <Typography
+          variant="h4"
+          component="h1"
+          id="projects-section"
+          gutterBottom
+          textAlign="center"
+          sx={{ width: "100%", px: 1, pb: 2 }}
+        >
+          Featured Projects
+        </Typography>
+        <div className="projects-section-grid">
           {projects.map((project) => (
-            <Grid item key={project.id} xs={12} sm={6} md={4}>
-              <ProjectCard
-                id={project.id}
-                title={project.title}
-                description={project.description}
-                imageSrc={project.getImageSrc()}
-                link={project.link}
-              />
-            </Grid>
+            <ProjectCard
+              key={project.id}
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.getImageSrc()}
+              link={project.link}
+            />
           ))}
-        </Grid>
+        </div>
       </Box>
     </FullScreenSection>
   );
