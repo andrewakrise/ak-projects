@@ -1,7 +1,9 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { WrapItem, Heading, Wrap, Center } from "@chakra-ui/react";
-import Card from "./Card";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { Box } from "@mui/material";
+import ProjectCard from "./Card";
 
 const projects = [
   {
@@ -60,27 +62,31 @@ const ProjectsSection = () => {
       p={4}
       alignItems="center"
       spacing={8}
-      min-width="100%"
+      sx={{ minWidth: "100%" }}
     >
-      <Heading as="h1" id="projects-section">
+      <Typography
+        variant="h4"
+        component="h1"
+        id="projects-section"
+        gutterBottom
+      >
         Featured Projects
-      </Heading>
-      <Wrap justify="center" spacing="8">
-        {projects.map((project) => (
-          <WrapItem key={project.id} maxW="400px" maxH="600px">
-            <Center key={project.id}>
-              <Card
-                key={project.id}
+      </Typography>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={4} justifyContent="center">
+          {projects.map((project) => (
+            <Grid item key={project.id} xs={12} sm={6} md={4}>
+              <ProjectCard
+                id={project.id}
                 title={project.title}
                 description={project.description}
-                url="https://github.com/andrewkukhar/"
                 imageSrc={project.getImageSrc()}
                 link={project.link}
               />
-            </Center>
-          </WrapItem>
-        ))}
-      </Wrap>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </FullScreenSection>
   );
 };

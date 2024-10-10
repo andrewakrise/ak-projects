@@ -1,24 +1,19 @@
+// src/components/Footer.js
 import React from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
 const Footer = () => {
   return (
-    <Box backgroundColor="#18181b">
-      <footer>
-        <Flex
-          margin="0 auto"
-          px={12}
-          color="white"
-          justifyContent="center"
-          alignItems="center"
-          maxWidth="1024px"
-          height={16}
-        >
-          <p>Andrew K • © 2022</p>
-        </Flex>
-      </footer>
+    <Box sx={{ backgroundColor: "#18181b", py: 2 }}>
+      <Container maxWidth="md">
+        <Typography variant="body1" color="white" align="center">
+          Andrew K • © 2022
+        </Typography>
+      </Container>
     </Box>
   );
 };
 
-export default Footer; 
+export default Footer;

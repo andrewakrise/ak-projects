@@ -1,31 +1,23 @@
+// src/components/Header.js
 import React, { useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-  faGithub,
-  faLinkedin,
-  faChrome
-} from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack, Stack } from "@chakra-ui/react";
+import { GitHub, LinkedIn, Language } from "@mui/icons-material";
+import { Button, IconButton, Box, Toolbar, AppBar } from "@mui/material";
 
 const socials = [
   {
-    icon: faEnvelope,
-    url: "mailto:andriikukharv@gmail.com",
-  },
-  {
-    icon: faGithub,
+    icon: <GitHub />,
     url: "https://www.github.com/andrewkukhar",
   },
   {
-    icon: faLinkedin,
+    icon: <LinkedIn />,
     url: "https://www.linkedin.com/in/andrewkukhar/",
   },
   {
-    icon: faChrome,
+    icon: <Language />,
     url: "https://www.akweb.dev/",
   },
 ];
+
 const Header = () => {
   const headerRef = useRef(null);
 
@@ -44,12 +36,12 @@ const Header = () => {
         headerElement.style.transform = "translateY(-200px)";
       }
       prevScrollPos = currentScrollPos;
-    }
-    window.addEventListener('scroll', handleScroll)
+    };
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleClick = (anchor) => () => {
@@ -62,55 +54,77 @@ const Header = () => {
       });
     }
   };
+
   return (
-    <Box
+    <AppBar
       position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      translateY={0}
-      transitionProperty="transform"
-      transitionDuration=".3s"
-      transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
       ref={headerRef}
+      sx={{
+        transition: "transform 0.3s ease-in-out",
+        backgroundColor: "#18181b",
+      }}
+      elevation={0} // Optional: Remove shadow
     >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
-        <Stack
-          px={16}
-          py={4}
-          justifyContent="space-between"
-          alignItems="center"
-          direction={['column', 'row']} spacing='24px'
-        >
-          <nav>
-            <HStack spacing={8} h='40px'>
-              {socials.map(({ icon, url }) => (
-                <a
-                  key={url}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon icon={icon} size="2x" key={url} />
-                </a>
-              ))}
-            </HStack>
-          </nav>
-          <nav>
-            <HStack spacing={8} h='40px'>
-              <a href="#projects" onClick={handleClick("projects")}>
-                Projects
-              </a>
-              <a href="#contactme" onClick={handleClick("contactme")}>
-                Contact Me
-              </a>
-            </HStack>
-          </nav>
-        </Stack>
-      </Box>
-    </Box>
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        {/* Social Icons */}
+        <Box>
+          {socials.map(({ icon, url }) => (
+            <IconButton
+              key={url}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "white",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                },
+              }}
+            >
+              {icon}
+            </IconButton>
+          ))}
+        </Box>
+
+        {/* Navigation Links */}
+        <Box>
+          <Button
+            onClick={handleClick("projects")}
+            sx={{
+              color: "white",
+              textTransform: "none",
+              marginLeft: 2,
+              marginRight: 2,
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+              },
+            }}
+          >
+            Projects
+          </Button>
+          <Button
+            onClick={handleClick("contactme")}
+            sx={{
+              color: "white",
+              textTransform: "none",
+              marginLeft: 2,
+              marginRight: 2,
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
+              },
+            }}
+          >
+            Contact Me
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 
-export default Header; 
+export default Header;

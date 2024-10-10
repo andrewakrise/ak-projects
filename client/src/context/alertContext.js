@@ -1,12 +1,13 @@
-import { createContext, useContext, useState } from "react";
+// src/context/alertContext.js
+import { createContext, useState } from "react";
 
 const AlertContext = createContext(undefined);
 
 export const AlertProvider = ({ children }) => {
   const [state, setState] = useState({
     isOpen: false,
-    type: 'success',
-    message: '',
+    type: "success",
+    message: "",
   });
 
   return (
@@ -14,12 +15,10 @@ export const AlertProvider = ({ children }) => {
       value={{
         ...state,
         onOpen: (type, message) => setState({ isOpen: true, type, message }),
-        onClose: () => setState({ isOpen: false, type: '', message: '' }),
+        onClose: () => setState({ isOpen: false, type: "", message: "" }),
       }}
     >
       {children}
     </AlertContext.Provider>
   );
 };
-
-export const useAlertContext = () => useContext(AlertContext);

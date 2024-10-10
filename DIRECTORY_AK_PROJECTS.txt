@@ -1,0 +1,52 @@
+.tree -I 'node_modules|build' > DIRECTORY_AK_PROJECTS.txt
+├── DIRECTORY_AK_PROJECTS.txt
+├── app.js
+├── client
+│   ├── README.md
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   └── robots.txt
+│   └── src
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── ak-logo.png
+│       ├── components
+│       │   ├── Alert.js
+│       │   ├── Card.js
+│       │   ├── ContactMeSection.js
+│       │   ├── Footer.js
+│       │   ├── FullScreenSection.js
+│       │   ├── Header.js
+│       │   ├── LandingSection.js
+│       │   └── ProjectsSection.js
+│       ├── context
+│       │   └── alertContext.js
+│       ├── images
+│       │   ├── agents-dashboard.png
+│       │   ├── childwood-store.png
+│       │   ├── dj-web-app.png
+│       │   ├── events-scheduler.png
+│       │   ├── map-tiler-example.png
+│       │   ├── music-device-store.png
+│       │   ├── music-player.png
+│       │   ├── online-chess.png
+│       │   ├── slidys.png
+│       │   ├── time-track1.png
+│       │   ├── time-track2.png
+│       │   ├── time-track3.png
+│       │   └── vandjsclub.png
+│       ├── index.css
+│       └── index.js
+├── contactUsEmailController.js
+├── models
+│   └── index.js
+├── package-lock.json
+├── package.json
+├── sendEmail.js
+└── sendEmailRoute.js
+
+8 directories, 42 files

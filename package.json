@@ -19,7 +19,7 @@
   },
   "keywords": [
     "ak",
-    "projects"  
+    "projects"
   ],
   "author": "ak",
   "license": "ISC",
@@ -29,11 +29,12 @@
   "homepage": "https://github.com/andrewkukhar/ak-projects#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.4.5",
     "dotenv-webpack": "^8.0.1",
     "express": "^4.18.2",
     "heroku": "^8.1.9",
     "mongoose": "^6.7.2",
+    "nodemailer": "^6.9.15",
     "path": "^0.12.7"
   },
   "devDependencies": {

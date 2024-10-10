@@ -1,33 +1,42 @@
 const express = require("express");
+require("dotenv").config();
 const cors = require("cors");
-const path = require('path')
+const path = require("path");
 const app = express();
+const sendEmailRoute = require("./routes/sendEmailRoute");
 
-var corsOptions = {
-    origin: "http://localhost:8081"
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(",")
+  : [
+      "http://localhost:3000",
+      "https://ak-projects.herokuapp.com",
+      "https://www.akweb.dev",
+    ];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 };
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// const db = require("./models");
-// db.mongoose
-//     .connect(`mongodb+srv://AkProjects:AkProjects@cluster0.ufk2y7c.mongodb.net/?retryWrites=true&w=majority`, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     })
-//     .then(() => {
-//         console.log("Successfully connect to MongoDB.");
-//     })
-//     .catch(err => {
-//         console.error("Connection error", err);
-//         process.exit();
-//     });
-app.use('/', express.static(path.join(__dirname, 'client','build')))
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-})
+app.use("/", express.static(path.join(__dirname, "client", "build")));
+app.use("/send-email", sendEmailRoute);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
+  console.log(`Server is running on port ${PORT}.`);
 });

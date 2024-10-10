@@ -1,16 +1,24 @@
-import * as React from "react";
-import { VStack } from "@chakra-ui/react";
+// src/components/FullScreenSection.js
+import React from "react";
+import { Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const StyledBox = styled(Box)(({ isDarkBackground, backgroundColor }) => ({
+  backgroundColor: backgroundColor || (isDarkBackground ? "#000" : "#fff"),
+  color: isDarkBackground ? "#fff" : "#000",
+  minHeight: "100vh",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "16px",
+}));
 
 const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
   return (
-    <VStack
-      backgroundColor={boxProps.backgroundColor}
-      color={isDarkBackground ? "white" : "black"}
-    >
-      <VStack maxWidth="100%" minHeight="100vh" {...boxProps}>
-        {children}
-      </VStack>
-    </VStack>
+    <StyledBox isDarkBackground={isDarkBackground} {...boxProps}>
+      {children}
+    </StyledBox>
   );
 };
 

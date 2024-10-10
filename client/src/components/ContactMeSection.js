@@ -1,58 +1,110 @@
-import React from "react";
-import { useFormik } from "formik";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Heading,
-  Input,
-  Select,
-  Textarea,
-  VStack,
-} from "@chakra-ui/react";
-import * as Yup from 'yup';
-import { send } from 'emailjs-com';
+// src/components/ContactMeSection.js
+import React, { useState } from "react";
+import { Box, Button, Typography, TextField } from "@mui/material";
 import FullScreenSection from "./FullScreenSection";
+import Alert from "./Alert";
+
+const serverUrl =
+  process.env.NODE_ENV === "production" ? "" : process.env.REACT_APP_SERVER_URL;
 
 const ContactMeSection = () => {
-
-  const formik = useFormik({
-    initialValues: {
-      from_name: "",
-      email: "",
-      type: "hireMe",
-      comment: "",
-    },
-    validationSchema: Yup.object({
-      from_name: Yup.string().required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
-      comment: Yup.string()
-        .min(25, "Must be at least 25 characters")
-        .required("Required"),
-    }),
-    onSubmit: (values) => {
-      console.log('values', values);
-      try {
-        send(
-          'service_ak-projects',
-          'template_me0gf7v',
-          values,
-          'agJWxeoZ_cB9hOqCK'
-        )
-        alert(`Thanks for your submission ${values.from_name}, we will get back to you shortly!`);
-        formik.setSubmitting(false);
-        formik.resetForm();
-        console.log('email sent');
-      } catch {
-        alert(`Something went wrong, please try again later!`);
-        formik.setSubmitting(false);
-      }
-
-    },
-
+  const [notification, setNotification] = useState({
+    open: false,
+    message: "",
   });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const isValid = () => {
+    let valid = true;
+    let tempErrors = {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    };
+
+    for (const key in formData) {
+      if (!formData[key]) {
+        tempErrors[key] = "This field is required";
+        valid = false;
+      }
+    }
+
+    if (formData.message.length < 25) {
+      tempErrors.message = "Message should be at least 25 characters";
+      valid = false;
+    }
+
+    setErrors(tempErrors);
+    return valid;
+  };
+
+  const inputStyles = {
+    "& label": { color: "white" },
+    "& label.Mui-focused": { color: "white" },
+    "& .MuiInputBase-input": { color: "white" },
+    "& .MuiOutlinedInput-root": {
+      backgroundColor: "#512DA8",
+      "& fieldset": { borderColor: "white" },
+      "&:hover fieldset": { borderColor: "white" },
+      "&.Mui-focused fieldset": { borderColor: "white" },
+    },
+    "& .MuiFormHelperText-root": { color: "white" },
+    "& .MuiInputBase-input::placeholder": { color: "white" },
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (isValid()) {
+      const result = await fetch(`${serverUrl}/send-email/contactus`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ formData }),
+      });
+      console.log("result", result);
+      if (result?.status === 201 || result?.status === 200) {
+        setNotification({
+          open: true,
+          message: `Form submitted! Andrew will contact you soon`,
+        });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        console.error("FAILED...");
+        setNotification({
+          open: true,
+          message: `Failed to send email. Please try again!`,
+        });
+      }
+    }
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") return;
+    setNotification({ ...notification, open: false });
+  };
 
   return (
     <FullScreenSection
@@ -61,59 +113,89 @@ const ContactMeSection = () => {
       py={16}
       spacing={8}
     >
-      <VStack maxW="724px" p={20} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
+      <Box maxWidth="724px" p={4} alignItems="flex-start" mx="auto">
+        <Typography
+          variant="h4"
+          component="h1"
+          id="contactme-section"
+          gutterBottom
+          sx={{ color: "white" }}
+        >
           Contact me
-        </Heading>
-        <Box p={6} rounded="unset" w="100%">
-          <form onSubmit={formik.handleSubmit}>
-            <VStack spacing={4}>
-              <FormControl isInvalid={!!formik.errors.from_name && formik.touched.from_name}>
-                <FormLabel htmlFor="from_name">Name</FormLabel>
-                <Input
-                  id="from_name"
-                  name="from_name"
-                  {...formik.getFieldProps("from_name")}
-                />
-                <FormErrorMessage>{formik.errors.from_name}</FormErrorMessage>
-              </FormControl>
-              <FormControl isInvalid={!!formik.errors.email && formik.touched.email}>
-                <FormLabel htmlFor="email">Email Address</FormLabel>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  {...formik.getFieldProps("email")}
-                />
-                <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
-                  <option value="hireMe">Project proposal</option>
-                  <option value="hiringProposal">
-                    Hiring proposal
-                  </option>
-                  <option value="other">Other</option>
-                </Select>
-              </FormControl>
-              <FormControl isInvalid={!!formik.errors.comment && formik.touched.comment}>
-                <FormLabel htmlFor="comment">Your message</FormLabel>
-                <Textarea
-                  id="comment"
-                  name="comment"
-                  height={250}
-                  {...formik.getFieldProps("comment")}
-                />
-                <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
-              </FormControl>
-              <Button type="submit" colorScheme="purple" width="full" disabled={formik.isSubmitting}>
-                Submit
-              </Button>
-            </VStack>
+        </Typography>
+        <Box p={2} width="100%">
+          <form onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              required
+              error={Boolean(errors.name)}
+              helperText={errors.name}
+              margin="normal"
+              label="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              sx={inputStyles}
+              placeholder="Enter your name"
+            />
+            <TextField
+              fullWidth
+              required
+              error={Boolean(errors.email)}
+              helperText={errors.email}
+              margin="normal"
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              sx={inputStyles}
+              placeholder="Enter your email"
+            />
+            <TextField
+              fullWidth
+              required
+              error={Boolean(errors.subject)}
+              helperText={errors.subject}
+              margin="normal"
+              label="Subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
+              sx={inputStyles}
+              placeholder="Enter the subject, like: Hiring propasal, Project proposal, etc"
+            />
+            <TextField
+              fullWidth
+              multiline
+              rows={4}
+              required
+              error={Boolean(errors.message)}
+              helperText={errors.message}
+              margin="normal"
+              label="Message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              sx={inputStyles}
+              placeholder="Enter your message"
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              sx={{ mt: 2 }}
+            >
+              Submit
+            </Button>
           </form>
         </Box>
-      </VStack>
+        <Alert
+          open={notification.open}
+          message={notification.message}
+          onClose={handleClose}
+        />
+      </Box>
     </FullScreenSection>
   );
 };

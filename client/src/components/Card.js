@@ -1,36 +1,59 @@
-import { Link, Heading, HStack, Image, Text, VStack, Stack } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+// src/components/Card.js
 import React from "react";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
-const Card = ({ id, title, description, imageSrc,link }) => {
+const ProjectCard = ({ id, title, description, imageSrc, link }) => {
   return (
-    <Stack
-      color="black"
-      backgroundColor="white"
-      cursor="pointer"
-      borderRadius="xl"
+    <Card
       key={id}
+      sx={{
+        maxWidth: 400,
+        borderRadius: 2,
+        backgroundColor: "#fff",
+        cursor: "pointer",
+        transition: "transform 0.2s",
+        "&:hover": {
+          transform: "scale(1.02)",
+        },
+      }}
     >
-      <Image borderRadius="xl"
-        objectFit='cover'
-        src={imageSrc} alt={title} />
-      <VStack spacing={4} p={4} alignItems="flex-start">
-        <HStack justifyContent="space-between" alignItems="center">
-          <Heading as="h3" size="md">
-            {title}
-          </Heading>
-        </HStack>
-        <Text color="#64748b" fontSize="lg">
+      <CardMedia
+        component="img"
+        height="200"
+        image={imageSrc}
+        alt={title}
+        sx={{
+          borderTopLeftRadius: 2,
+          borderTopRightRadius: 2,
+        }}
+      />
+      <CardContent sx={{ padding: 2 }}>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="#64748b">
           {description}
-        </Text>
-        <HStack spacing={2} alignItems="center">
-          <Link href={link} isExternal>See more</Link>
-          <FontAwesomeIcon icon={faArrowRight} size="1x" />
-        </HStack>
-      </VStack>
-    </Stack>
+        </Typography>
+      </CardContent>
+      <CardActions sx={{ justifyContent: "flex-end", padding: 2 }}>
+        <Button
+          size="small"
+          color="primary"
+          href={link}
+          target="_blank"
+          endIcon={<OpenInNewIcon />}
+        >
+          See more
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 
-export default Card; 
+export default ProjectCard;
