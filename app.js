@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 const sendEmailRoute = require("./routes/sendEmailRoute");
+const chatbotRoute = require("./routes/chatbotRoute");
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(",")
@@ -31,6 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", express.static(path.join(__dirname, "client", "build")));
 app.use("/send-email", sendEmailRoute);
+app.use("/chatbot", chatbotRoute);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

@@ -12,18 +12,21 @@ const ContactMeSection = () => {
     open: false,
     message: "",
   });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
   const isValid = () => {
     let valid = true;
     let tempErrors = {
