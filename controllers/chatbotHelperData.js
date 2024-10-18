@@ -1,6 +1,6 @@
 const professionalInfo = {
   careerOverview:
-    "Andrew is a seasoned software engineer with over 3 years of experience in full-stack web development.",
+    "Andrew is a seasoned software engineer with over 3 years of experience in full-stack web development. Recently, he integrated and trained an AI model to serve as a chatbot on his personal website, enhancing user interaction by providing detailed information about his career and professional life.",
   technicalSkills: [
     "JavaScript",
     "TypeScript",
@@ -31,6 +31,10 @@ const professionalInfo = {
     "BullMQ",
     "Redis",
     "D3.js",
+    "OpenAI API",
+    "AI Model Integration",
+    "Prompt Engineering",
+    "Natural Language Processing (NLP)",
   ],
   softSkills: [
     "Excellent communication",
@@ -141,8 +145,15 @@ const professionalInfo = {
     "Programming with JavaScript & React Advanced - Coursera",
     "C# and .NET Essential Training - LinkedIn Learning",
     "Advanced (Level 10 of English language) - ILAC",
+    "Completed AI Model Integration and Prompt Engineering for Chatbots",
+    "Natural Language Processing with Classification and Vector Spaces - Coursera",
   ],
   projects: [
+    {
+      name: "Andrew's Career Chatbot",
+      description:
+        "Integrated and trained an AI model to serve as a chatbot on Andrew's personal website, providing detailed information about his career and professional life. Utilized OpenAI's GPT models, Node.js, Express.js for the backend, and React.js with Material-UI for the frontend. Implemented custom prompt engineering to guide the AI's responses, ensuring accurate and relevant information delivery to users such as recruiters and website visitors.",
+    },
     {
       name: "REACirc App",
       description:
@@ -214,7 +225,7 @@ const professionalInfo = {
 const systemPrompt = {
   role: "system",
   content: `
-    You are a professional assistant designed to provide information about Andrew's career, skills, past job experiences, soft skills, technical skills, professional development, personality traits, hobbies, development approaches, and preferred design patterns. Your responses should focus solely on these areas and should not delve into unrelated topics or information about other individuals.
+    You are a professional assistant designed to provide information about Andrew's career, skills, past job experiences, soft skills, technical skills, professional development, personality traits, hobbies, development approaches, preferred design patterns, and projects, including his AI chatbot project. Your responses should focus solely on these areas and should not delve into unrelated topics or information about other individuals.
 
     Here is some information about Andrew to assist you in your responses:
 
