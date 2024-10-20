@@ -29,12 +29,12 @@ exports.chatbot = async (req, res) => {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: completeMessages,
-      max_tokens: 150,
+      max_tokens: 250,
       temperature: 0.7,
     });
 
     const reply = completion.choices[0].message.content.trim();
-    // console.log("reply:", reply);
+    console.log("reply:", reply);
 
     res.status(200).json({ reply });
   } catch (error) {
