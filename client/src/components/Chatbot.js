@@ -9,6 +9,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import Alert from "./Alert";
+import { parseReply } from "./utilsChatbotTextHelper";
 
 const serverUrl =
   process.env.NODE_ENV === "production" ? "" : process.env.REACT_APP_SERVER_URL;
@@ -152,20 +153,36 @@ const Chatbot = () => {
               marginBottom: "10px",
             }}
           >
-            <Typography
-              variant="body1"
-              sx={{
-                display: "inline-block",
-                padding: "10px",
-                borderRadius: "10px",
-                backgroundColor: msg.sender === "bot" ? "#e0e0e0" : "#1976d2",
-                color: msg.sender === "bot" ? "#000" : "#fff",
-                maxWidth: "80%",
-                wordBreak: "break-word",
-              }}
-            >
-              {msg.text}
-            </Typography>
+            {msg.sender === "bot" ? (
+              <Box
+                sx={{
+                  display: "inline-block",
+                  padding: "0.6rem",
+                  borderRadius: "0.6rem",
+                  backgroundColor: "#e0e0e0",
+                  color: "#000",
+                  maxWidth: "75%",
+                  wordBreak: "break-word",
+                }}
+              >
+                {parseReply(msg?.text)}
+              </Box>
+            ) : (
+              <Typography
+                variant="body1"
+                sx={{
+                  display: "inline-block",
+                  padding: "0.6rem",
+                  borderRadius: "0.6rem",
+                  backgroundColor: "#1976d2",
+                  color: "#fff",
+                  maxWidth: "75%",
+                  wordBreak: "break-word",
+                }}
+              >
+                {msg?.text}
+              </Typography>
+            )}
           </Box>
         ))}
         {isLoading && (
