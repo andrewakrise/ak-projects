@@ -4,18 +4,10 @@ import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactMeSection from "./components/ContactMeSection";
-import Chatbot from "./components/Chatbot";
 import Footer from "./components/Footer";
+import ChatbotDialog from "./components/ChatbotDialog";
 import "./App.css";
-import {
-  Fab,
-  Dialog,
-  IconButton,
-  AppBar,
-  Toolbar,
-  Typography,
-  Tooltip,
-} from "@mui/material";
+import { Fab, Tooltip } from "@mui/material";
 import { Chat, Close } from "@mui/icons-material";
 
 function App() {
@@ -62,29 +54,10 @@ function App() {
           )}
         </Fab>
       </Tooltip>
-      <Dialog
-        fullScreen
-        open={isChatbotVisible}
-        onClose={toggleChatbot}
-        aria-labelledby="chatbot-dialog-title"
-      >
-        <AppBar sx={{ position: "relative" }}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={toggleChatbot}
-              aria-label="close"
-            >
-              <Close />
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Andrew's Career Chatbot
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Chatbot />
-      </Dialog>
+      <ChatbotDialog
+        isChatbotVisible={isChatbotVisible}
+        toggleChatbot={toggleChatbot}
+      />
     </main>
   );
 }

@@ -5,6 +5,12 @@
   overflow-x: hidden;
 }
 
+.main-app-body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .full-screen-section {
   width: 100%;
   max-width: 100%;
@@ -44,7 +50,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   padding: 7rem 2rem;
 }
 
@@ -56,7 +62,7 @@
   flex-wrap: wrap;
   width: 100%;
   max-width: 100rem;
-  gap: 2rem;
+  gap: 2rem 1rem;
 }
 
 .project-card {
@@ -79,7 +85,7 @@
     padding: 5rem 0;
   }
   .projects-section-grid {
-    gap: 2rem 1rem;
+    gap: 2rem 0.7rem;
   }
   .project-card {
     width: 375px;
@@ -92,9 +98,12 @@
   }
   .projects-section {
     max-width: 100%;
+    width: 100%;
   }
   .projects-section-grid {
     gap: 2rem 0;
+    width: 100%;
+    max-width: 100%;
   }
   .project-card {
     max-width: 350px;
@@ -108,10 +117,12 @@
   }
   .projects-section {
     max-width: 100%;
+    width: 100%;
     padding: 3rem 0;
   }
   .projects-section-grid {
     width: 90%;
+    max-width: 90%;
     gap: 2rem 0;
   }
   .project-card {

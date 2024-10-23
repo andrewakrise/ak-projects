@@ -1,18 +1,18 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { Box, Typography } from "@mui/material";
-import ProjectCard from "./Card";
+import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    id: 5,
+    id: "online-chess",
     title: "Online Chess Game",
     description: "Online chess game for having a fun",
     getImageSrc: () => require("../images/online-chess.png"),
     link: "https://chess-two-players.herokuapp.com/",
   },
   {
-    id: 6,
+    id: "music-app",
     title: "Music App",
     description:
       "Created Music app, but not finished, in progress to add music library and then you can enjoy the music",
@@ -20,7 +20,7 @@ const projects = [
     link: "https://music-player-ak.herokuapp.com/",
   },
   {
-    id: 7,
+    id: "time-tracker",
     title: "Time tracker",
     description:
       "Web app for create and count your timing for work or anything else",
@@ -28,14 +28,15 @@ const projects = [
     link: "https://time-track.herokuapp.com/",
   },
   {
-    id: 8,
-    title: "DJ_Web App",
+    id: "old-dj-app",
+    title: "OLD_DJ_Web App",
     description: "DJ page or a web app, responsive, adaptive, simple",
     getImageSrc: () => require("../images/dj-web-app.png"),
     link: "https://www.djsrise.com/",
   },
+
   {
-    id: 9,
+    id: "agent-dashboard",
     title: "Agents Dashboard",
     description:
       "Dashboard to collect, analize and display the data of agents, with interacrtive charts created from scratch",
@@ -43,12 +44,34 @@ const projects = [
     link: "https://www.youtube.com/watch?v=8iqvGfCUnsI&ab_channel=AndrewKukhar/",
   },
   {
-    id: 10,
+    id: "vandjs-club",
     title: "VanDJs Club",
     description:
       "Web app in progress... React, Node.js, MongoDB, Image libraries, JWT, Heroku",
     getImageSrc: () => require("../images/vandjsclub.png"),
     link: "https://www.vandjs.club/",
+  },
+  {
+    id: "new-dj-app",
+    title: "DJ_Web App",
+    description: "DJ page or a web app, responsive, adaptive, simple",
+    getImageSrc: () => require("../images/dj-web-app.png"),
+    link: "https://www.risedj.club/",
+  },
+  {
+    id: "reacirc-app",
+    title: "REACirc App",
+    description: `Web Platform as a Service to handle specific data flows.
+System Design: Designed and developed robust system architecture, including backend services and MongoDB integration, supporting
+real-time data processing and complex state management.
+• Scheduling Automation: Built a flexible duty scheduling system with multi-select options, drag-and-drop management, and tier-based
+schedule displays.
+• Job Processing: Implemented queue-based background processing using BullMQ for efficient file handling and real-time notifications.
+• Data Integration: Enhanced data accuracy by implementing address validation via Google Maps API and optimizing backend data filtering
+for pagination.
+Using tech stack: WebSocket, ReactJS, MUI, NodeJS, ExpressJS, MongoDB, REST API, JWT auth, Heroku, GitHub Actions workflows.`,
+    getImageSrc: () => require("../images/dj-web-app.png"),
+    link: "no-link",
   },
 ];
 
@@ -59,7 +82,7 @@ const ProjectsSection = () => {
       isDarkBackground
       className="full-screen-section"
     >
-      <Box sx={{ flexGrow: 1 }} className="projects-section">
+      <Box sx={{ flexGrow: 1, width: "100%" }} className="projects-section">
         <Typography
           variant="h4"
           component="h1"
@@ -71,14 +94,14 @@ const ProjectsSection = () => {
           Featured Projects
         </Typography>
         <div className="projects-section-grid">
-          {projects.map((project) => (
+          {projects?.map((project) => (
             <ProjectCard
-              key={project.id}
-              id={project.id}
-              title={project.title}
-              description={project.description}
-              imageSrc={project.getImageSrc()}
-              link={project.link}
+              key={project?.id}
+              id={project?.id}
+              title={project?.title}
+              description={project?.description}
+              imageSrc={project?.getImageSrc()}
+              link={project?.link}
             />
           ))}
         </div>

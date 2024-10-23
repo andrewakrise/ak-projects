@@ -9,7 +9,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import Alert from "./Alert";
-import { parseReply } from "./utilsChatbotTextHelper";
+import { parseReply } from "./helpers/utilsChatbotTextHelper";
 
 const serverUrl =
   process.env.NODE_ENV === "production" ? "" : process.env.REACT_APP_SERVER_URL;
