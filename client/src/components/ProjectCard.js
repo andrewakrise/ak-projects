@@ -21,6 +21,8 @@ const ProjectCard = ({ id, title, description, link }) => {
     return text.length > length ? `${text.substring(0, length)}...` : text;
   };
 
+  const isChessProject = id === "online-chess";
+
   return (
     <Card
       sx={{
@@ -44,7 +46,44 @@ const ProjectCard = ({ id, title, description, link }) => {
           title={title}
         />
       ) : link && link !== "no-link" ? (
-        <IframeWithSpinner src={link} title={title} />
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "12.5rem",
+            overflow: "hidden",
+          }}
+        >
+          <IframeWithSpinner
+            src={link}
+            title={title}
+            style={
+              isChessProject
+                ? {
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "108rem",
+                    height: "63rem",
+                    border: "none",
+                    transform: "scale(0.2)",
+                    transformOrigin: "0 0",
+                    pointerEvents: "none",
+                  }
+                : {
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "108rem",
+                    height: "63rem",
+                    border: "none",
+                    transform: "scale(0.2)",
+                    transformOrigin: "0 0",
+                    pointerEvents: "none",
+                  }
+            }
+          />
+        </div>
       ) : (
         <Typography
           variant="body1"

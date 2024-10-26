@@ -2,11 +2,18 @@
 import React, { useState } from "react";
 import { CircularProgress, Box } from "@mui/material";
 
-const IframeWithSpinner = ({ src, title }) => {
+const IframeWithSpinner = ({ src, title, style }) => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <Box sx={{ width: "100%", height: "12.5rem", position: "relative" }}>
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       {loading && (
         <Box
           sx={{
@@ -25,10 +32,17 @@ const IframeWithSpinner = ({ src, title }) => {
       )}
       <iframe
         src={src}
-        style={{ width: "100%", height: "100%", border: "none" }}
         title={title}
         loading="lazy"
         onLoad={() => setLoading(false)}
+        scrolling="no"
+        style={{
+          width: "100%",
+          height: "100%",
+          border: "none",
+          overflow: "hidden",
+          ...style,
+        }}
       />
     </Box>
   );
