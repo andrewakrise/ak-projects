@@ -63,7 +63,7 @@ schedule displays.
 for pagination.
 Using tech stack: WebSocket, ReactJS, MUI, NodeJS, ExpressJS, MongoDB, REST API, JWT auth, Heroku, GitHub Actions workflows.`,
     getImageSrc: () => require("../images/dj-web-app.png"),
-    link: "no-link",
+    link: "https://vimeo.com/1026656507/0eb484de83?share=copy",
   },
 ];
 
