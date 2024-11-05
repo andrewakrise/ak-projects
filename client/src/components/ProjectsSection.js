@@ -20,14 +20,6 @@ const projects = [
     link: "https://music-player-ak.herokuapp.com/",
   },
   {
-    id: "time-tracker",
-    title: "Time tracker",
-    description:
-      "Web app for create and count your timing for work or anything else",
-    getImageSrc: () => require("../images/time-track3.png"),
-    link: "https://time-track.herokuapp.com/",
-  },
-  {
     id: "old-dj-app",
     title: "OLD_DJ_Web App",
     description: "DJ page or a web app, responsive, adaptive, simple",
