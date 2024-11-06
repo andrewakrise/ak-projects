@@ -144,5 +144,26 @@
 }
 
 .pulse-highlight {
-  animation: chatbotHighlight 1.5s ease-in-out infinite;
+  animation: chatbotHighlight 3s ease-in-out infinite;
+}
+
+@keyframes typingText {
+  0% {
+    content: "ask me";
+  }
+  33% {
+    content: "about Andrew's";
+  }
+  66% {
+    content: "career";
+  }
+  100% {
+    content: "ask me";
+  }
+}
+
+.typing-icon .typing-text {
+  font-size: 0.2rem;
+  opacity: 1;
+  transition: opacity 1.5s ease-in-out;
 }
