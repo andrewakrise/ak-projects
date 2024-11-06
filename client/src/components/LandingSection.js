@@ -6,7 +6,8 @@ import logo from "../ak-logo.png";
 
 const greeting = "Hello, I am Andrew!";
 const bio1 = "a Software Engineer";
-const bio2 = "Specialized in React, Node.js, JS, and much more...";
+const bio2 =
+  "Leveraging AI Integration & Cutting-Edge Development to Drive Innovation";
 
 const LandingSection = () => (
   <FullScreenSection
