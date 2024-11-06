@@ -1,7 +1,13 @@
+// chatbotHelperData
+
 const professionalInfo = {
   careerOverview:
-    "Andrew is a seasoned software engineer with over 3 years of experience in full-stack web development. Recently, he integrated and trained an AI model to serve as a chatbot on his personal website, enhancing user interaction by providing detailed information about his career and professional life.",
+    "In the past two years, Andrew has been leveraging AI technologies to significantly enhance his work as a Software Engineer. By integrating tools like ChatGPT and GitHub Copilot into his workflow, he has accelerated development processes, improved code quality, and elevated system design efficiency. Andrew successfully integrated and trained an AI model to serve as a chatbot on his personal website, providing tailored, career-specific insights for users. His expertise spans AI model integration, prompt engineering, and natural language processing (NLP). As a certified Software Engineer, Andrew brings extensive experience in full-stack web development, specializing in technologies such as React.js, Node.js, Express.js, JavaScript, TypeScript, Redux, and Material-UI. His work on projects like the REACirc App has deepened his skills in system architecture, real-time data processing, and state management, leading to the creation of scalable, high-performance applications.",
   technicalSkills: [
+    "OpenAI API",
+    "AI Model Integration",
+    "Prompt Engineering",
+    "Natural Language Processing (NLP)",
     "JavaScript",
     "TypeScript",
     "React.js",
@@ -31,10 +37,12 @@ const professionalInfo = {
     "BullMQ",
     "Redis",
     "D3.js",
-    "OpenAI API",
-    "AI Model Integration",
-    "Prompt Engineering",
-    "Natural Language Processing (NLP)",
+    "HTML",
+    "CSS",
+    "SCSS",
+    "PHP (some)",
+    "Vue.js (some)",
+    "jQuery (some)",
   ],
   softSkills: [
     "Excellent communication",
@@ -84,7 +92,7 @@ const professionalInfo = {
     {
       role: "Lead Software Developer",
       company: "RealtyOS Inc.",
-      duration: "03/2024 - Present",
+      duration: "03/2024 - 10/2024",
       responsibilities:
         "Designed and developed robust system architecture, including backend services and MongoDB integration, supporting real-time data processing and complex state management.",
     },
@@ -147,12 +155,15 @@ const professionalInfo = {
     "Advanced (Level 10 of English language) - ILAC",
     "Completed AI Model Integration and Prompt Engineering for Chatbots",
     "Natural Language Processing with Classification and Vector Spaces - Coursera",
+    "Front-End Developer Professional Certificate by Meta",
+    "Web UI Development - Online IT Academy SoftServ",
+    "Bachelor's Degree - Kyiv National University of Trade and Economics",
   ],
   projects: [
     {
       name: "Andrew's Career Chatbot",
       description:
-        "Integrated and trained an AI model to serve as a chatbot on Andrew's personal website, providing detailed information about his career and professional life. Utilized OpenAI's GPT models, Node.js, Express.js for the backend, and React.js with Material-UI for the frontend. Implemented custom prompt engineering to guide the AI's responses, ensuring accurate and relevant information delivery to users such as recruiters and website visitors.",
+        "Integrated and trained an AI model to serve as a chatbot on Andrew's personal website, providing detailed information about his career and professional life. Utilized OpenAI's GPT models, Node.js, Express.js for the backend, and React.js with Material-UI for the frontend. Implemented custom prompt engineering to guide the AI's responses, ensuring accurate and relevant information delivery to users such as recruiters and website visitors. This project demonstrates Andrew's expertise in AI model integration, NLP, and effective use of AI tools to streamline career-related interactions.",
     },
     {
       name: "REACirc App",

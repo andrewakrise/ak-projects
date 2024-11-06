@@ -130,3 +130,19 @@
     width: 100%;
   }
 }
+
+@keyframes chatbotHighlight {
+  0% {
+    box-shadow: 0 0 0px rgba(254, 254, 254, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 2rem rgba(255, 152, 234, 0.633);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(222, 137, 255, 0.778);
+  }
+}
+
+.pulse-highlight {
+  animation: chatbotHighlight 1.5s ease-in-out infinite;
+}

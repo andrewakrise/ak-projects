@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
 import ProjectsSection from "./components/ProjectsSection";
@@ -12,10 +12,18 @@ import { Chat, Close } from "@mui/icons-material";
 
 function App() {
   const [isChatbotVisible, setIsChatbotVisible] = useState(false);
+  const [highlightChatbot, setHighlightChatbot] = useState(true);
 
   const toggleChatbot = () => {
     setIsChatbotVisible((prev) => !prev);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHighlightChatbot(false);
+    }, 10000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main className="main-app">
@@ -39,13 +47,14 @@ function App() {
           onClick={toggleChatbot}
           sx={{
             position: "fixed",
-            bottom: "10%",
+            top: "10%",
             right: 16,
             zIndex: 1000,
             width: "7.5rem",
             height: "7.5rem",
           }}
           aria-label="chatbot-toggle"
+          className={highlightChatbot ? "pulse-highlight" : ""}
         >
           {isChatbotVisible ? (
             <Close sx={{ fontSize: "5rem" }} />
