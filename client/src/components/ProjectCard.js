@@ -42,7 +42,7 @@ const ProjectCard = ({ id, title, description, link }) => {
         />
       ) : vimeoId ? (
         <IframeWithSpinner
-          src={`https://player.vimeo.com/video/${vimeoId}`} // Correct embed URL for Vimeo
+          src={`https://player.vimeo.com/video/${vimeoId}?h=0eb484de83`}
           title={title}
         />
       ) : link && link !== "no-link" ? (
