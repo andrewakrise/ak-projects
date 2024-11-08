@@ -22,10 +22,10 @@ const LandingSection = () => (
       </Typography>
     </div>
     <div className="bio-box">
-      <Typography variant="h4" component="h1">
+      <Typography variant="h4" component="h1" px={2}>
         {bio1}
       </Typography>
-      <Typography variant="h6" component="h2">
+      <Typography variant="h6" component="h2" px={3}>
         {bio2}
       </Typography>
     </div>
