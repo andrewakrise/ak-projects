@@ -12,19 +12,11 @@ const projects = [
     link: "https://chess-two-players.herokuapp.com/",
   },
   {
-    id: "music-app",
-    title: "Music App",
-    description:
-      "Created Music app, but not finished, in progress to add music library and then you can enjoy the music",
-    getImageSrc: () => require("../images/music-player.png"),
-    link: "https://music-player-ak.herokuapp.com/",
-  },
-  {
-    id: "old-dj-app",
-    title: "OLD_DJ_Web App",
+    id: "admin-dj-app",
+    title: "ADMIN_DJ_Web App",
     description: "DJ page or a web app, responsive, adaptive, simple",
     getImageSrc: () => require("../images/dj-web-app.png"),
-    link: "https://www.djsrise.com/",
+    link: "https://www.djrise.party/",
   },
 
   {

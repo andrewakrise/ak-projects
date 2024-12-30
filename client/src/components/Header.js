@@ -6,11 +6,11 @@ import { Button, IconButton, Box, Toolbar, AppBar } from "@mui/material";
 const socials = [
   {
     icon: <GitHub />,
-    url: "https://www.github.com/andrewkukhar",
+    url: "https://www.github.com/andrewakrise",
   },
   {
     icon: <LinkedIn />,
-    url: "https://www.linkedin.com/in/andrewkukhar/",
+    url: "https://www.linkedin.com/in/andrewrise/",
   },
   {
     icon: <Language />,

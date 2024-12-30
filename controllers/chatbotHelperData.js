@@ -90,18 +90,18 @@ const professionalInfo = {
   ],
   pastJobs: [
     {
-      role: "Lead Software Developer",
+      role: "Lead Software Developer (03/2024 - 12/2024) & Software Developer (10/2023 - 03/2024)",
       company: "RealtyOS Inc.",
-      duration: "03/2024 - 10/2024",
-      responsibilities:
-        "Designed and developed robust system architecture, including backend services and MongoDB integration, supporting real-time data processing and complex state management.",
-    },
-    {
-      role: "Software Developer",
-      company: "RealtyOS Inc.",
-      duration: "10/2023 - 03/2024",
-      responsibilities:
-        "Contributed to building scalable, high-performance applications with a focus on system design and real-time data processing.",
+      duration: "10/2023 - 12/2024",
+      responsibilities: `
+        - Web Platform as a Service to handle specific data flows.
+        - System Design: Designed and developed robust system architecture, including backend services and MongoDB integration, supporting real-time data processing and complex state management.
+        - Scheduling Automation: Built a flexible duty scheduling system with multi-select options, drag-and-drop management, and tier-based schedule displays.
+        - Job Processing: Implemented queue-based background processing using BullMQ for efficient file handling and real-time notifications.
+        - Data Integration: Enhanced data accuracy by implementing address validation via Google Maps API and optimizing backend data filtering for pagination.
+        - NLSF Web App: Developed the Nanaimo Ladysmith Scholarship Foundation web application, leveraging AWS ECS & Fargate for containerized deployments with a load balancer, Docker, and MsSQL (SQL Server). This ensures secure, high-availability data handling for scholarship-related records.
+        - Tech Stack: WebSocket, React.js, MUI, Node.js, Express.js, MongoDB, MsSQL, REST API, JWT auth, Heroku, GitHub Actions, AWS, Docker.
+      `,
     },
     {
       role: "React Developer",
@@ -125,16 +125,9 @@ const professionalInfo = {
         "Developed web applications with the NIM team for Inclusity as a volunteer.",
     },
     {
-      role: "Front End Developer",
-      company: "Wins Transporte und Frachtvermittlung GmbH",
-      duration: "08/2021 - 08/2022",
-      responsibilities:
-        "Developed the Employees App WTF, a web application for optimizing transport company operations.",
-    },
-    {
       role: "Front End Web Developer / Full-Stack Developer",
       company: "Edelweis 2000 LLC",
-      duration: "05/2021 - 03/2022",
+      duration: "05/2021 - 05/2022",
       responsibilities:
         "Developed web applications and websites for multiple projects, enhancing sales and expanding customer base.",
     },
@@ -160,6 +153,16 @@ const professionalInfo = {
     "Bachelor's Degree - Kyiv National University of Trade and Economics",
   ],
   projects: [
+    {
+      name: "Online Chess AI Integration",
+      description:
+        "Developed an online chess platform that integrates the new AI o1-mini model, allowing players to face a machine-learning-based opponent in real time. Leveraging Node.js, Express.js, React.js, and WebSocket for real-time gameplay, Andrew implemented move validation (via chess libraries like chess.js) and an intuitive UI. This project demonstrates his expertise in AI model integration, game logic, front-end design, and server-side technologies, resulting in a robust, interactive chess experience accessible through a web browser.",
+    },
+    {
+      name: "ADMIN_DJ_Web App",
+      description:
+        "Built an administrative web application to automate the DJ booking process end-to-end. Key features include client intake forms, email confirmations, PDF contract generation, follow-up emails, and secure payment integration. Utilizing Node.js, Express.js, React.js, and MongoDB, Andrew orchestrated a seamless workflow for both DJ administrators and clients. This project highlights his expertise in workflow automation, back-end logic, and front-end design, all while ensuring a responsive and user-friendly experience.",
+    },
     {
       name: "Andrew's Career Chatbot",
       description:

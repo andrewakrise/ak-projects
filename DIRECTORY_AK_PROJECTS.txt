@@ -1,4 +1,4 @@
-.tree -I 'node_modules|build' > DIRECTORY_AK_PROJECTS.txt
+.
 ├── DIRECTORY_AK_PROJECTS.txt
 ├── app.js
 ├── client
@@ -7,7 +7,9 @@
 │   ├── package.json
 │   ├── public
 │   │   ├── favicon.ico
+│   │   ├── icon.png
 │   │   ├── index.html
+│   │   ├── logo.png
 │   │   └── robots.txt
 │   └── src
 │       ├── App.css
@@ -16,13 +18,19 @@
 │       ├── ak-logo.png
 │       ├── components
 │       │   ├── Alert.js
-│       │   ├── Card.js
+│       │   ├── Chatbot.js
+│       │   ├── ChatbotDialog.js
 │       │   ├── ContactMeSection.js
 │       │   ├── Footer.js
 │       │   ├── FullScreenSection.js
 │       │   ├── Header.js
 │       │   ├── LandingSection.js
-│       │   └── ProjectsSection.js
+│       │   ├── ProjectCard.js
+│       │   ├── ProjectsSection.js
+│       │   └── helpers
+│       │       ├── IframeWithSpinner.js
+│       │       ├── utils.js
+│       │       └── utilsChatbotTextHelper.js
 │       ├── images
 │       │   ├── agents-dashboard.png
 │       │   ├── childwood-store.png
@@ -40,12 +48,16 @@
 │       ├── index.css
 │       └── index.js
 ├── controllers
+│   ├── chatbotController.js
+│   ├── chatbotHelperData.js
 │   └── contactUsEmailController.js
 ├── models
 │   └── index.js
 ├── package-lock.json
 ├── package.json
+├── repo-cli-commands.txt
 └── routes
+    ├── chatbotRoute.js
     └── sendEmailRoute.js
 
-9 directories, 40 files
+10 directories, 51 files
