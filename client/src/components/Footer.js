@@ -9,7 +9,7 @@ const Footer = () => {
     <Box sx={{ backgroundColor: "#18181b", py: 2 }}>
       <Container maxWidth="md">
         <Typography variant="body1" color="white" align="center">
-          Andrew K • © 2024
+          Andrew R • © 2025
         </Typography>
       </Container>
     </Box>
