@@ -2,7 +2,7 @@
 import React from "react";
 import { Avatar, Typography } from "@mui/material";
 import FullScreenSection from "./FullScreenSection";
-import logo from "../ak-logo.png";
+import logo from "../ar-logo.png";
 
 const greeting = "Hello, I am Andrew!";
 const bio1 = "a Software Engineer";

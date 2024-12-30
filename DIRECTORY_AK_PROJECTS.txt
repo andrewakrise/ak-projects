@@ -15,7 +15,7 @@
 │       ├── App.css
 │       ├── App.js
 │       ├── App.test.js
-│       ├── ak-logo.png
+│       ├── ar-logo.png
 │       ├── components
 │       │   ├── Alert.js
 │       │   ├── Chatbot.js
