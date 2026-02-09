@@ -11,7 +11,8 @@
     "client:deploy": "concurrently \"npm run client:install\" \"npm run client:build\"",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "deploy:heroku": "git push heroku main"
   },
   "repository": {
     "type": "git",
