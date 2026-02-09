@@ -2,7 +2,7 @@
 
 const professionalInfo = {
   careerOverview:
-    "In the past two years, Andrew has been leveraging AI technologies to significantly enhance his work as a Software Engineer. By integrating tools like ChatGPT and GitHub Copilot into his workflow, he has accelerated development processes, improved code quality, and elevated system design efficiency. Andrew successfully integrated and trained an AI model to serve as a chatbot on his personal website, providing tailored, career-specific insights for users. His expertise spans AI model integration, prompt engineering, and natural language processing (NLP). As a certified Software Engineer, Andrew brings extensive experience in full-stack web development, specializing in technologies such as React.js, Node.js, Express.js, JavaScript, TypeScript, Redux, and Material-UI. His work on projects like the REACirc App has deepened his skills in system architecture, real-time data processing, and state management, leading to the creation of scalable, high-performance applications.",
+    "In the past two years, Andrew has been leveraging AI technologies to significantly enhance his work as a Software Engineer. By integrating tools like Cursor and Claude Code into his workflow, he has accelerated development processes, improved code quality, and elevated system design efficiency. Andrew successfully integrated and trained an AI model to serve as a chatbot on his personal website, providing tailored, career-specific insights for users. His expertise spans AI model integration, prompt engineering, and natural language processing (NLP). As a certified Software Engineer, Andrew brings extensive experience in full-stack web development and production systems, including TypeScript (Node.js/NestJS), React/Next.js, contract-first OpenAPI platforms, and AWS infrastructure (CDK, ECS/Fargate, RDS, CloudWatch). His work on projects like the REACirc App has deepened his skills in system architecture, real-time data processing, and state management, leading to the creation of scalable, high-performance applications.",
   technicalSkills: [
     "OpenAI API",
     "AI Model Integration",
@@ -11,12 +11,20 @@ const professionalInfo = {
     "JavaScript",
     "TypeScript",
     "React.js",
+    "Next.js",
     "Node.js",
+    "NestJS",
     "Express.js",
     "Redux",
     "WebSocket",
+    "REST APIs",
     "AWS",
     "AWS S3,",
+    "AWS CDK",
+    "AWS ECS/Fargate",
+    "AWS RDS",
+    "CloudWatch",
+    "Docker",
     "GitHub",
     "GitHub Actions",
     "Heroku",
@@ -29,9 +37,13 @@ const professionalInfo = {
     "UI/UX Design",
     "Responsive Design",
     "Firebase",
+    "Postgres",
+    "Prisma",
     "MongoDB",
     "NoSQL",
     "REST API",
+    "OpenAPI",
+    "Redocly",
     "C#",
     ".NET",
     "BullMQ",
@@ -89,6 +101,20 @@ const professionalInfo = {
     "Factory",
   ],
   pastJobs: [
+    {
+      role: "Software Engineer (03/2025 - 02/2026)",
+      company: "Perfecti Technologies Inc.",
+      duration: "03/2025 - 02/2026",
+      responsibilities: `
+        - Architected and delivered Lender Communications backend (email domain, artifacts/attachments, Gmail polling integration, S3-backed storage), including 20+ operational API endpoints.
+        - Built system mode management (NORMAL / MAINTENANCE / INGESTION) with scheduling/cron automation and guard-enforced access control for safe operational workflows.
+        - Implemented AI-powered guideline semantic search (embeddings-based search pipeline + caching/warmup patterns) and integrated it into product UX flows.
+        - Maintained a contract-first OpenAPI architecture (modular spec + strict Redocly validation), including automated spec flattening, TypeScript client generation, and publish/version automation.
+        - Implemented and operated a multi-step ingestion pipeline (parse → map → policy match → translate → ingest → embeddings) with step dependency enforcement and documented workflow.
+        - Improved reliability/observability with CloudWatch: audited and implemented 17 staging + 21 production alarms, reducing alert noise by focusing on actionable server-side failure signals.
+        - Authored and maintained 94+ reusable curl scripts for repeatable smoke tests and operational validation; added broad system-mode validation coverage (47+ tests).
+      `,
+    },
     {
       role: "Lead Software Developer (03/2024 - 12/2024) & Software Developer (10/2023 - 03/2024)",
       company: "RealtyOS Inc.",
