@@ -6,16 +6,24 @@ import {
   Card,
   CardContent,
   CardActions,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton,
+  Box,
 } from "@mui/material";
-import { OpenInNew } from "@mui/icons-material";
+import { OpenInNew, Close, Info } from "@mui/icons-material";
 import { getYouTubeVideoId, getVimeoVideoId } from "./helpers/utils.js";
 import IframeWithSpinner from "./helpers/IframeWithSpinner.js";
 
-const ProjectCard = ({ id, title, description, link }) => {
+const ProjectCard = ({ id, title, description, link, detailContent }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
-  const youtubeId = getYouTubeVideoId(link);
-  const vimeoId = getVimeoVideoId(link);
+  const isDialogProject = link === "dialog";
+  const youtubeId = !isDialogProject ? getYouTubeVideoId(link) : null;
+  const vimeoId = !isDialogProject ? getVimeoVideoId(link) : null;
 
   const truncateDescription = (text, length) => {
     return text.length > length ? `${text.substring(0, length)}...` : text;
@@ -35,7 +43,31 @@ const ProjectCard = ({ id, title, description, link }) => {
         overflowY: "auto",
       }}
     >
-      {youtubeId ? (
+      {isDialogProject ? (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "12.5rem",
+            background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+            color: "#fff",
+            cursor: "pointer",
+          }}
+          onClick={() => setDialogOpen(true)}
+        >
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: 700, letterSpacing: 1, mb: 0.5 }}
+          >
+            {title}
+          </Typography>
+          <Typography variant="caption" sx={{ opacity: 0.7 }}>
+            Click to view details
+          </Typography>
+        </Box>
+      ) : youtubeId ? (
         <IframeWithSpinner
           src={`https://www.youtube.com/embed/${youtubeId}`}
           title={title}
@@ -125,7 +157,16 @@ const ProjectCard = ({ id, title, description, link }) => {
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: "flex-end", padding: 2 }}>
-        {link && link !== "no-link" ? (
+        {isDialogProject ? (
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => setDialogOpen(true)}
+            endIcon={<Info />}
+          >
+            View Details
+          </Button>
+        ) : link && link !== "no-link" ? (
           <Button
             size="small"
             color="primary"
@@ -141,6 +182,43 @@ const ProjectCard = ({ id, title, description, link }) => {
           </Button>
         )}
       </CardActions>
+
+      {isDialogProject && detailContent && (
+        <Dialog
+          open={dialogOpen}
+          onClose={() => setDialogOpen(false)}
+          maxWidth="md"
+          fullWidth
+          PaperProps={{
+            sx: {
+              borderRadius: 2,
+              maxHeight: "85vh",
+            },
+          }}
+        >
+          <DialogTitle
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              pb: 1,
+            }}
+          >
+            <Typography variant="h5" component="span" sx={{ fontWeight: 700 }}>
+              {title}
+            </Typography>
+            <IconButton onClick={() => setDialogOpen(false)} size="small">
+              <Close />
+            </IconButton>
+          </DialogTitle>
+          <DialogContent dividers>{detailContent}</DialogContent>
+          <DialogActions sx={{ px: 3, py: 1.5 }}>
+            <Button onClick={() => setDialogOpen(false)} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+      )}
     </Card>
   );
 };

@@ -2,30 +2,25 @@ import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { Box, Typography } from "@mui/material";
 import ProjectCard from "./ProjectCard";
+import RatePerfectDetails from "./RatePerfectDetails";
+import ProGigDetails from "./ProGigDetails";
 
 const projects = [
   {
-    id: "online-chess",
-    title: "Online Chess Game",
-    description: "Online chess game for having a fun",
-    getImageSrc: () => require("../images/online-chess.png"),
-    link: "https://chess-two-players.herokuapp.com/",
-  },
-  {
-    id: "admin-dj-app",
-    title: "ADMIN_DJ_Web App",
-    description: "DJ page or a web app, responsive, adaptive, simple",
-    getImageSrc: () => require("../images/dj-web-app.png"),
-    link: "https://www.djrise.party/",
-  },
-
-  {
-    id: "agent-dashboard",
-    title: "Agents Dashboard",
+    id: "progig-platform",
+    title: "ProGig Platform",
     description:
-      "Dashboard to collect, analize and display the data of agents, with interacrtive charts created from scratch",
-    getImageSrc: () => require("../images/agents-dashboard.png"),
-    link: "https://www.youtube.com/watch?v=8iqvGfCUnsI&ab_channel=AndrewKukhar/",
+      "Multi-tenant SaaS for DJs, Venues & Event Companies — Next.js 15, NestJS 11, AI (Gemini + Claude), pgvector, Stripe",
+    link: "dialog",
+    detailContent: <ProGigDetails />,
+  },
+  {
+    id: "rate-perfect",
+    title: "Rate Perfect Platform",
+    description:
+      "Full-stack mortgage/finance platform — NestJS, Next.js, AWS, OpenAPI, PostgreSQL",
+    link: "dialog",
+    detailContent: <RatePerfectDetails />,
   },
   {
     id: "reacirc-app",
@@ -41,6 +36,28 @@ for pagination.
 Using tech stack: WebSocket, ReactJS, MUI, NodeJS, ExpressJS, MongoDB, REST API, JWT auth, Heroku, GitHub Actions workflows.`,
     getImageSrc: () => require("../images/dj-web-app.png"),
     link: "https://vimeo.com/1026656507/0eb484de83?share=copy",
+  },
+  {
+    id: "agent-dashboard",
+    title: "Agents Dashboard",
+    description:
+      "Dashboard to collect, analize and display the data of agents, with interacrtive charts created from scratch",
+    getImageSrc: () => require("../images/agents-dashboard.png"),
+    link: "https://www.youtube.com/watch?v=8iqvGfCUnsI&ab_channel=AndrewKukhar/",
+  },
+  {
+    id: "online-chess",
+    title: "Online Chess Game",
+    description: "Online chess game for having a fun",
+    getImageSrc: () => require("../images/online-chess.png"),
+    link: "https://chess-two-players.herokuapp.com/",
+  },
+  {
+    id: "admin-dj-app",
+    title: "ADMIN_DJ_Web App",
+    description: "DJ page or a web app, responsive, adaptive, simple",
+    getImageSrc: () => require("../images/dj-web-app.png"),
+    link: "https://www.djrise.party/",
   },
 ];
 
@@ -69,8 +86,9 @@ const ProjectsSection = () => {
               id={project?.id}
               title={project?.title}
               description={project?.description}
-              imageSrc={project?.getImageSrc()}
+              imageSrc={project?.getImageSrc?.()}
               link={project?.link}
+              detailContent={project?.detailContent}
             />
           ))}
         </div>
