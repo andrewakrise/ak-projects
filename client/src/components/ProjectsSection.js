@@ -28,21 +28,6 @@ const projects = [
     link: "https://www.youtube.com/watch?v=8iqvGfCUnsI&ab_channel=AndrewKukhar/",
   },
   {
-    id: "vandjs-club",
-    title: "VanDJs Club",
-    description:
-      "Web app in progress... React, Node.js, MongoDB, Image libraries, JWT, Heroku",
-    getImageSrc: () => require("../images/vandjsclub.png"),
-    link: "https://www.vandjs.club/",
-  },
-  {
-    id: "new-dj-app",
-    title: "DJ_Web App",
-    description: "DJ page or a web app, responsive, adaptive, simple",
-    getImageSrc: () => require("../images/dj-web-app.png"),
-    link: "https://www.risedj.club/",
-  },
-  {
     id: "reacirc-app",
     title: "REACirc App",
     description: `Web Platform as a Service to handle specific data flows.
